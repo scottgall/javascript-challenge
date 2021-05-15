@@ -12,19 +12,17 @@ form.addEventListener('submit', event => {
 });
 
 let createRows = (data) => {
-  html = '';
-  data.forEach(obj => {
-    html += `<tr>
-              <td>${obj.datetime}</td>
-              <td>${obj.city}</td>
-              <td>${obj.state}</td>
-              <td>${obj.country}</td>
-              <td>${obj.shape}</td>
-              <td>${obj.duration}</td>
-              <td>${obj.comments}</td>
-            </tr>`
-  });
-  return html;
+  return data.reduce((prev, cur) => {
+    return prev + `<tr>
+                    <td>${cur.datetime}</td>
+                    <td>${cur.city}</td>
+                    <td>${cur.state}</td>
+                    <td>${cur.country}</td>
+                    <td>${cur.shape}</td>
+                    <td>${cur.durationMinutes}</td>
+                    <td>${cur.comments}</td>
+                  </tr>`
+  }, '')
 };
 
 let updateDOM = (html) => {
@@ -32,4 +30,3 @@ let updateDOM = (html) => {
 };
 
 updateDOM(createRows(tableData));
-
