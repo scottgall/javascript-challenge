@@ -6,9 +6,11 @@ let form = document.querySelector('form');
 form.addEventListener('submit', event => {
   event.preventDefault();
   let date = document.querySelector('#datetime').value;
-  let filteredData = tableData.filter(obj => obj.datetime === date);
-  let rows = createRows(filteredData);
-  updateDOM(rows);
+  if (date) {
+    let filteredData = tableData.filter(obj => obj.datetime === date);
+    let rows = createRows(filteredData);
+    updateDOM(rows);
+  };
 });
 
 let createRows = (data) => {
