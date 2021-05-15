@@ -32,4 +32,3 @@ let updateDOM = (html) => {
 };
 
 updateDOM(createRows(tableData));
-console.log('ok')
