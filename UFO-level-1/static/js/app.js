@@ -1,11 +1,11 @@
 // from data.js
 let tableData = data;
 
-let form = document.querySelector('form');
+let form = d3.select('form');
 
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  let date = document.querySelector('#datetime').value;
+form.on('submit', event => {
+  d3.event.preventDefault();
+  let date = d3.select('#datetime').property('value');
   if (date) {
     let filteredData = tableData.filter(obj => obj.datetime === date);
     let rows = createRows(filteredData);
@@ -28,7 +28,7 @@ let createRows = (data) => {
 };
 
 let updateDOM = (html) => {
-  document.querySelector('tbody').innerHTML = html;
+  d3.select('tbody').html(html);
 };
 
 updateDOM(createRows(tableData));

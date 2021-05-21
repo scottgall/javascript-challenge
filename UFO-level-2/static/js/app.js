@@ -20,6 +20,7 @@ form.addEventListener('submit', event => {
   
   let filteredData = filterData(filterObj);
   let rows = createRows(filteredData);
+  
   updateDOM(rows);
 });
 
